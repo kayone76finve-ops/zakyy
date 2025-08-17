@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keiraa Keys - Harmoni Ungu</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(to bottom, #471616, #3b3939);
+        color: #f8f6f6;
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        zoom: 1.2;
+      }
+      .navbar {
+        background: rgba(112, 20, 18, 0.791);
+        backdrop-filter: blur(5px);
+      }
+      .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+      .nav-link {
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-weight: 500;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: #fff !important;
+      }
+      .hero-section {
+        padding: 140px 0 80px;
+        text-align: center;
+      }
+      .profile-img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        object-fit: cover;
+        margin-bottom: 30px;
+      }
+      .hero-name {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .hero-subtitle {
+        font-size: 1.4rem;
+        opacity: 0.8;
+        margin-bottom: 30px;
+      }
+      .social-icons {
+        margin: 30px 0;
+      }
+      .social-icons a,
+      .social-icon-contact,
+      .footer-social-icon {
+        display: inline-block;
+        border-radius: 50%;
+        color: #333;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .social-icons a {
+        width: 60px;
+        height: 60px;
+        background: rgba(253, 200, 200, 0.9);
+        line-height: 60px;
+        margin: 0 15px;
+        font-size: 1.4rem;
+      }
+      .social-icons a:hover {
+        background: #891d1be1;
+        transform: translateY(-3px);
+      }
+      .social-icon-contact {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        line-height: 40px;
+        font-size: 1.1rem;
+      }
+      .social-icon-contact:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        transform: translateY(-2px);
+      }
+      .footer-social-icon {
+        width: 35px;
+        height: 35px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        line-height: 35px;
+        font-size: 1rem;
+      }
+      .footer-social-icon:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        transform: translateY(-2px);
+      }
+      .btn-primary-custom {
+        background: #6d1818;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        transition: all 0.3s;
+        font-size: 1.1rem;
+      }
+      .btn-primary-custom:hover {
+        background: #a6140d;
+        transform: translateY(-2px);
+        color: white;
+      }
+      .about-section {
+        padding: 100px 0;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 295px;
+        height: 4px;
+        background: #7d1414;
+        margin: 25px auto;
+      }
+      .about-text {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        max-width: 900px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+      .music-section {
+        padding: 100px 0;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      .music-player {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 50px;
+      }
+      .progress-bar-container {
+        background: rgba(255, 255, 255, 0.2);
+        height: 10px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      .progress-bar {
+        background: #811505;
+        height: 100%;
+        width: 45%;
+        border-radius: 10px;
+        transition: width 0.3s;
+      }
+      .player-controls {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .control-btn {
+        background: rgba(248, 217, 217, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin: 0 15px;
+        color: #333;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .control-btn.play-btn {
+        background: #7b1e09;
+        color: rgb(251, 201, 201);
+        width: 70px;
+        height: 70px;
+        font-size: 1.6rem;
+      }
+      .control-btn:hover {
+        transform: scale(1.1);
+      }
+      .now-playing {
+        text-align: center;
+        font-size: 1.2rem;
+        opacity: 0.8;
+      }
+      .song-table {
+        background: rgba(130, 40, 28, 0.326);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .table {
+        margin-bottom: 0;
+        font-size: 1.1rem;
+      }
+      .table thead th {
+        background: rgba(216, 99, 99, 0.2);
+        border: none;
+        font-weight: 600;
+        padding: 20px;
+        font-size: 1.2rem;
+        color: white !important;
+      }
+      .table tbody tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: background 0.3s;
+        color: black !important;
+      }
+      .table tbody tr:nth-child(1),
+      .table tbody tr:nth-child(3) {
+        background: rgba(180, 180, 180, 0.4) !important;
+      }
+      .table tbody tr:nth-child(2),
+      .table tbody tr:nth-child(4) {
+        background: rgba(139, 69, 19, 0.6) !important;
+      }
+      .table tbody tr:hover {
+        background: rgba(255, 100, 100, 0.3) !important;
+      }
+      .table td {
+        border: none;
+        padding: 20px;
+        vertical-align: middle;
+      }
+      .card-title,
+      .card-text {
+        color: white !important;
+      }
+      .gallery-card {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+      .gallery-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      .gallery-card .card-img-top {
+        transition: all 0.3s ease;
+      }
+      .gallery-card:hover .card-img-top {
+        transform: scale(1.1);
+      }
+      .contact-card {
+        background: rgba(75, 18, 14, 0.8) !important;
+      }
+      .contact-icon {
+        color: #f8f6f6 !important;
+        width: 24px;
+        margin-right: 15px;
+      }
+      @media (max-width: 768px) {
+        body {
+          zoom: 1;
+        }
+        .hero-name {
+          font-size: 3rem;
+        }
+        .profile-img {
+          width: 180px;
+          height: 180px;
+        }
+        .social-icons a {
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          margin: 0 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#beranda"
+          ><i class="fas fa-music me-2"></i>Keeyraa</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#beranda">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#musik">Musik</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#galeri">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#video">Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#kontak">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section id="beranda" class="hero-section">
+      <div class="container">
+        <img src="huutao.jpg" alt="Keiraa Keys" class="profile-img" />
+        <h1 class="hero-name">Keeyraa Keys</h1>
+        <p class="hero-subtitle">Gamers & Editors | Pencipta Web Keeyraa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-spotify"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-apple"></i></a>
+        </div>
+        <a href="#musik" class="btn-primary-custom">
+          <i class="fas fa-headphones me-2"></i>Dengarkan Musik
+        </a>
+      </div>
+    </section>
+    <section id="tentang" class="about-section">
+      <div class="container">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-text">
+          <p>
+            Nama Saya adalah Maulana Zacky Atau Sering Dipanggil Zakyy Seorang
+            Pelajar SMK Yang Ingin Memahami Dan Mempelajari Tentang Percodingan
+            Dan Semoga Dari Belajar Ini Saya Bisa Lebih Paham Tentang
+            Percodingan Dan Juga Menjadikan Ini Sebagai Pengalaman.
+          </p>
+          <p>
+            Kata Kata "Jomblo itu Wajar, Karena Aku Masih pelajar, Tugas Ku
+            Belajar, Bukan Cari Pacar"
+          </p>
+          <h4 style="margin-top: 40px; margin-bottom: 20px">Moto Saya</h4>
+          <p>
+            <em
+              >"Aku Tidak Akan Melakukan Sesuatu Yang Tidak Harus Kulakukan.
+              Tapi Bila Harus Kulakukan, Maka Akan Segera Kuselesaikan."</em
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="musik" class="music-section">
+      <div class="container">
+        <h2 class="section-title text-center">Daftar Lagu</h2>
+        <div class="music-player">
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <div class="player-controls">
+            <button class="control-btn" onclick="previousSong()">
+              <i class="fas fa-step-backward"></i>
+            </button>
+            <button
+              class="control-btn play-btn"
+              onclick="togglePlay()"
+              id="playBtn"
+            >
+              <i class="fas fa-play" id="playIcon"></i>
+            </button>
+            <button class="control-btn" onclick="nextSong()">
+              <i class="fas fa-step-forward"></i>
+            </button>
+          </div>
+          <div class="now-playing" id="nowPlaying">
+            Now Playing: Shinunoga E-Wa - Keiraa Keys
+          </div>
+        </div>
+        <div class="song-table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Judul Lagu</th>
+                <th>Album</th>
+                <th>Durasi</th>
+                <th>Tahun</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr onclick="playSong(0, 'Shinunoga E-Wa', 'Fujii Kaze')">
+                <td>1</td>
+                <td><i class="fas fa-music me-2"></i>Shinunoga E-Wa</td>
+                <td>Fujii Kaze</td>
+                <td>2:32</td>
+                <td>2025</td>
+              </tr>
+              <tr onclick="playSong(1, 'SukiDakara', 'Yuikaa')">
+                <td>2</td>
+                <td><i class="fas fa-music me-2"></i>SukiDakara</td>
+                <td>Yuikaa</td>
+                <td>3:42</td>
+                <td>2024</td>
+              </tr>
+              <tr onclick="playSong(2, 'You(=I)', 'BOL4')">
+                <td>3</td>
+                <td><i class="fas fa-music me-2"></i>You(=I)</td>
+                <td>BOL4</td>
+                <td>3:12</td>
+                <td>2025</td>
+              </tr>
+              <tr onclick="playSong(3, 'Aduh Mamae', 'Bulan Sutena')">
+                <td>4</td>
+                <td><i class="fas fa-music me-2"></i>Aduh Mamae</td>
+                <td>Bulan Sutena</td>
+                <td>2:54</td>
+                <td>2021</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section id="galeri" class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center">Galeri</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card bg-transparent border-light gallery-card">
+              <img
+                src="yayai.jpg"
+                class="card-img-top"
+                style="height: 300px; object-fit: cover; border-radius: 10px"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Live Performance</h5>
+                <p class="card-text">HuTao Festival 2025</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card bg-transparent border-light gallery-card">
+              <img
+                src="huuti.jpg"
+                class="card-img-top"
+                style="height: 300px; object-fit: cover; border-radius: 10px"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">Konser Latern Rite</h5>
+                <p class="card-text">Si Cantik Hutao</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card bg-transparent border-light gallery-card">
+              <img
+                src="hiha.jpg"
+                class="card-img-top"
+                style="height: 300px; object-fit: cover; border-radius: 10px"
+              />
+              <div class="card-body text-center">
+                <h5 class="card-title">In The Musical Seni</h5>
+                <p class="card-text">Musical Seni Hutao</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="video" class="py-5" style="background: rgba(105, 6, 6, 0.3)">
+      <div class="container">
+        <h2 class="section-title text-center">Video</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card bg-dark text-white">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/m2B9NZ2Sv0I"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Karna Su Sayang-HuTao</h5>
+                <p class="card-text">Bersantai Bersama -HuTao</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card bg-dark text-white">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/iHBEDNtwOBw"
+                  title="Midnight Sonata"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Lonely Lonely</h5>
+                <p class="card-text">Vintage -Lonely</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="kontak" class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center">Kontak & Jadwal</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card bg-dark text-white h-100 contact-card">
+              <div class="card-body">
+                <h4 class="card-title mb-4">Hubungi Saya</h4>
+                <div class="mb-3 d-flex align-items-center">
+                  <i class="fas fa-envelope contact-icon"></i>
+                  <span>maulanazakyy010@gmail.com</span>
+                </div>
+
+                <div class="mb-3 d-flex align-items-center">
+                  <i class="fas fa-phone contact-icon"></i>
+                  <span>+62 895-4155-85732</span>
+                </div>
+                <div class="mb-4 d-flex align-items-center">
+                  <i class="fas fa-map-marker-alt contact-icon"></i>
+                  <span>Semarang, Indonesia</span>
+                </div>
+                <div class="social-icons-contact mt-4">
+                  <a href="#" class="social-icon-contact me-3"
+                    ><i class="fab fa-spotify"></i
+                  ></a>
+                  <a href="#" class="social-icon-contact me-3"
+                    ><i class="fab fa-tiktok"></i
+                  ></a>
+                  <a href="#" class="social-icon-contact me-3"
+                    ><i class="fab fa-facebook"></i
+                  ></a>
+                  <a href="#" class="social-icon-contact"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card bg-dark text-white h-100 contact-card">
+              <div class="card-body">
+                <h4 class="card-title mb-4">Jadwal Konser Mendatang</h4>
+                <div
+                  class="schedule-item mb-3 pb-3"
+                  style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="schedule-date">
+                      <strong>15 Sept 2025</strong>
+                    </div>
+                    <div class="schedule-event text-end">
+                      Live Performance, Semarang
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="schedule-item mb-3 pb-3"
+                  style="border-bottom: 1px solid rgba(255, 255, 255, 0.2)"
+                >
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="schedule-date">
+                      <strong>28 Sept 2025</strong>
+                    </div>
+                    <div class="schedule-event text-end">
+                      Concert Latern Rite, Jakarta
+                    </div>
+                  </div>
+                </div>
+                <div class="schedule-item">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="schedule-date">
+                      <strong>10 Okt 2025</strong>
+                    </div>
+                    <div class="schedule-event text-end">
+                      Musical Seni, Surabaya
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="py-4" style="background: rgba(0, 0, 0, 0.7)">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-music me-2" style="font-size: 1.5rem"></i>
+              <strong style="font-size: 1.2rem">Keeyra Keys</strong>
+            </div>
+            <p class="mb-0 mt-2" style="opacity: 0.7">
+              Menciptakan Keindahan,Kekuatan,Dan Juga Romansa.
+            </p>
+          </div>
+          <div class="col-md-6 text-end">
+            <p class="mb-2">
+              © 2025 Keeyraa Keys. Seluruh Hak Cipta Dilindungi.
+            </p>
+            <div class="footer-social-icons">
+              <a href="#" class="footer-social-icon me-2"
+                ><i class="fab fa-spotify"></i
+              ></a>
+              <a href="#" class="footer-social-icon me-2"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="#" class="footer-social-icon me-2"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="footer-social-icon"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <audio id="audioPlayer" preload="auto">
+      <source src="hiwaww.mp3" type="audio/wav" />
+    </audio>
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      let isPlaying = false,
+        currentSong = 0;
+      const audio = document.getElementById("audioPlayer");
+      const playBtn = document.getElementById("playBtn");
+      const playIcon = document.getElementById("playIcon");
+      const nowPlaying = document.getElementById("nowPlaying");
+      const progressBar = document.getElementById("progressBar");
+      const songs = [
+        { title: "Shinunoga E-Wa", artist: "Fujii Kaze", src: "hiwaww.mp3" },
+        { title: "SukiDakara", artist: "Yuikaa", src: "yayayi.mp3" },
+        {
+          title: "You(=I)",
+          artist: "BOL4",
+          src: "ssstik.io_1754879988507.mp3",
+        },
+        { title: "Aduh Mamae", artist: "Bulan Sutena", src: "manisss.mp3" },
+      ];
+      function togglePlay() {
+        if (isPlaying) {
+          audio.pause();
+          playIcon.className = "fas fa-play";
+        } else {
+          audio.play();
+          playIcon.className = "fas fa-pause";
+        }
+        isPlaying = !isPlaying;
+      }
+      function playSong(index, title, artist) {
+        currentSong = index;
+        audio.src = songs[index].src;
+        nowPlaying.innerHTML = `Now Playing: ${title} - ${artist}`;
+        if (isPlaying) audio.play();
+        const rows = document.querySelectorAll("tbody tr");
+        rows.forEach((row, i) => {
+          if (i === index) {
+            row.style.background = "rgba(255, 100, 100, 0.5)";
+          } else {
+            row.style.background =
+              i === 0 || i === 2
+                ? "rgba(180, 180, 180, 0.4)"
+                : "rgba(139, 69, 19, 0.6)";
+          }
+        });
+      }
+      function nextSong() {
+        currentSong = (currentSong + 1) % songs.length;
+        const song = songs[currentSong];
+        playSong(currentSong, song.title, song.artist);
+      }
+      function previousSong() {
+        currentSong = currentSong === 0 ? songs.length - 1 : currentSong - 1;
+        const song = songs[currentSong];
+        playSong(currentSong, song.title, song.artist);
+      }
+      audio.addEventListener("timeupdate", function () {
+        if (audio.duration) {
+          const progress = (audio.currentTime / audio.duration) * 100;
+          progressBar.style.width = progress + "%";
+        }
+      });
+      audio.addEventListener("ended", nextSong);
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
